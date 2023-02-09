@@ -4,6 +4,7 @@
     "manifest_version": 3,
     "description": "Hello World Project",
     "action": {
+        "default_popup": "popup.html",
         "default_icon": "./icons2/icon128.png"
     },
     "background": {
@@ -21,14 +22,22 @@
         "scripting",
         "tabs",
         "webRequest",
-		"declarativeNetRequest"
+        "declarativeNetRequest"
     ],
     "host_permissions": [
         "*://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*"
+            ],
+            "css": [
+                "./css/content_styles.css"
+            ],
+            "js": [
+                "./js/content.js"
+            ]
+        }
     ]
-    // "content_scripts": [{
-    //     "matches": ["https://*/*"],
-    //     "css": ["./css/content_styles.css"]
-    //   }]
-    
-}   
+}
